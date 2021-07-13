@@ -1,0 +1,70 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.hsj.assignment"
+        minSdkVersion 22
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding{
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    // noinspection GradleCompatible
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+
+    implementation 'com.google.firebase:firebase-core:19.0.0'
+    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+    implementation 'com.google.firebase:firebase-firestore:23.0.2'
+    implementation 'com.google.firebase:firebase-core:19.0.0'
+    implementation 'com.firebaseui:firebase-ui-firestore:4.1.0'
+
+    // koin
+    implementation "org.koin:koin-androidx-scope:1.0.2"
+    implementation "org.koin:koin-androidx-viewmodel:1.0.2"
+    testImplementation 'org.koin:koin-test:1.0.1'
+
+    implementation("androidx.paging:paging-runtime:2.1.2") // For Kotlin use paging-runtime-ktx
+
+    // alternatively - without Android dependencies for testing
+    testImplementation("androidx.paging:paging-common:2.1.2") // For Kotlin use paging-common-ktx
+
+    // optional - RxJava support
+    implementation("androidx.paging:paging-rxjava2:2.1.2") // For Kotlin use paging-rxjava2-ktx
+}
+
+apply plugin: 'com.google.gms.google-services'

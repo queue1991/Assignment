@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="fragment"
+            type="com.hsj.assignment.fragment.home.HomeFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.hsj.assignment.viewmodel.HomeViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/iv_my"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/purple_200"
+                app:layout_scrollFlags="scroll">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:text="광고를 넣어주세요."
+                    android:textColor="#ffffff"/>
+
+            </RelativeLayout>
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tablayout_home"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:gravity="center"
+                android:background="#ffffff"
+                app:tabTextColor="#000000"
+                app:tabSelectedTextColor="@color/purple_200"/>
+
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#D5D5D5"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

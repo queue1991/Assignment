@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="fragment"
+            type="com.hsj.assignment.fragment.home.IntroFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.hsj.assignment.viewmodel.HomeViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/tv_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="intro"
+        android:textSize="24dp"
+        android:textColor="#000000"
+        android:padding="24dp"/>
+
+</RelativeLayout>
+
+</layout>
