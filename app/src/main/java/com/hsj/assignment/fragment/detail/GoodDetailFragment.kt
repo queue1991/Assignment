@@ -23,6 +23,9 @@ class GoodDetailFragment : BaseKotlinFragment<FragmentGoodDetailBinding, DetailV
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        this.viewDataBinding.viewModel = viewModel
+        this.viewDataBinding.fragment = this
+
         setGoodInfo()
     }
 

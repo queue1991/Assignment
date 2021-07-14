@@ -22,10 +22,12 @@ class DetailFragment : BaseKotlinFragment<FragmentDetailBinding, DetailViewModel
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager: ViewPager
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tv_toolbartitle.text = viewModel.goodName.value
+        this.viewDataBinding.viewModel = viewModel
+        this.viewDataBinding.fragment = this
 
         tabLayout = tablayout_detail
         viewPager = viewpager_detail

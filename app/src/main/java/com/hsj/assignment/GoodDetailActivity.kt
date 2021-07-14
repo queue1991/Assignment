@@ -1,6 +1,5 @@
 package com.hsj.assignment
 
-import android.util.Log
 import com.hsj.assignment.base.BaseKotlinActivity
 import com.hsj.assignment.common.CommonIntentKey.INTENT_KEY_DOCUMENT_FROM_HOME_TO_DETAIL_ACTIVITY
 import com.hsj.assignment.common.CommonIntentKey.INTENT_KEY_GOODNAME_FROM_HOME_TO_DETAIL_ACTIVITY
@@ -9,7 +8,6 @@ import com.hsj.assignment.common.CommonIntentKey.INTENT_KEY_GOODTYPE_FROM_HOME_T
 import com.hsj.assignment.databinding.ActivityDetailBinding
 import com.hsj.assignment.fragment.detail.DetailFragment
 import com.hsj.assignment.viewmodel.DetailViewModel
-import kotlinx.android.synthetic.main.fragment_detail.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class GoodDetailActivity : BaseKotlinActivity<ActivityDetailBinding, DetailViewModel>() {
@@ -24,7 +22,8 @@ class GoodDetailActivity : BaseKotlinActivity<ActivityDetailBinding, DetailViewM
     }
 
     override fun initDataBinding() {
-
+        this.viewDataBinding.viewModel = viewModel
+        this.viewDataBinding.activity = this
     }
 
     override fun initAfterBinding() {

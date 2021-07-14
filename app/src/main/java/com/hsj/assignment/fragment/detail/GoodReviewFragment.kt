@@ -36,8 +36,35 @@ class GoodReviewFragment : BaseKotlinFragment<FragmentGoodReviewBinding, DetailV
     private var adapter: FirestorePagingAdapter<Review, ReviewViewHolder>? = null
     private lateinit var recyclerView: RecyclerView
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        this.viewDataBinding.viewModel = viewModel
+        this.viewDataBinding.fragment = this
+
+        setReviewList()
+    }
+
+    private open class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        fun setReviewInfo(userName : String?, contents : String?, score : String?, date : Timestamp){
+            val tv_user : TextView =itemView.findViewById(R.id.tv_user)
+            tv_user.text = userName
+
+            val tv_contents : TextView =itemView.findViewById(R.id.tv_contents)
+            tv_contents.text = contents
+
+            val tv_score : TextView =itemView.findViewById(R.id.tv_score)
+            tv_score.text = score.toString() + "점"
+
+            val tv_date : TextView =itemView.findViewById(R.id.tv_date)
+            tv_date.text = DateUtil.convertTimestampToDate(date.seconds)
+        }
+
+    }
+
+    private fun setReviewList(){
         recyclerView = recyclerview_review
         recyclerView.layoutManager = LinearLayoutManager(activity)
 
@@ -67,7 +94,7 @@ class GoodReviewFragment : BaseKotlinFragment<FragmentGoodReviewBinding, DetailV
                 holder.setReviewInfo(review.user,review.contents,review.score, review.date!!)
                 holder.itemView.setOnClickListener {
 
-                 }
+                }
             }
 
             override fun onLoadingStateChanged(state: LoadingState) {
@@ -99,24 +126,5 @@ class GoodReviewFragment : BaseKotlinFragment<FragmentGoodReviewBinding, DetailV
         }
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
-
-    }
-
-    private open class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        fun setReviewInfo(userName : String?, contents : String?, score : String?, date : Timestamp){
-            val tv_user : TextView =itemView.findViewById(R.id.tv_user)
-            tv_user.text = userName
-
-            val tv_contents : TextView =itemView.findViewById(R.id.tv_contents)
-            tv_contents.text = contents
-
-            val tv_score : TextView =itemView.findViewById(R.id.tv_score)
-            tv_score.text = score.toString() + "점"
-
-            val tv_date : TextView =itemView.findViewById(R.id.tv_date)
-            tv_date.text = DateUtil.convertTimestampToDate(date.seconds)
-        }
-
     }
 }

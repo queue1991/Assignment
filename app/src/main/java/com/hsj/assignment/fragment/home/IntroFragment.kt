@@ -17,15 +17,14 @@ class IntroFragment : BaseKotlinFragment<FragmentIntroBinding, HomeViewModel>() 
         get() = R.layout.fragment_intro
     override val viewModel: HomeViewModel by viewModel()
 
-    private lateinit var docRef : DocumentReference
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        docRef = FirebaseFirestore.getInstance().collection(COLLECTION_INTRO).document("app1")
-        docRef.addSnapshotListener { value, error ->
-            tv_intro.text = value!!.get(FILED_INTRO).toString()
-        }
+        this.viewDataBinding.viewModel = viewModel
+        this.viewDataBinding.fragment = this
+
+        viewModel.getIntroData()
     }
 
 }

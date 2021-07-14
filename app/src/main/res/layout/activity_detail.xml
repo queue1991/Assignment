@@ -7,11 +7,11 @@
     <data>
         <variable
             name="activity"
-            type="com.hsj.assignment.MainActivity" />
+            type="com.hsj.assignment.GoodDetailActivity" />
 
         <variable
             name="viewModel"
-            type="com.hsj.assignment.viewmodel.HomeViewModel" />
+            type="com.hsj.assignment.viewmodel.DetailViewModel" />
 
         <import type="android.view.View" />
 

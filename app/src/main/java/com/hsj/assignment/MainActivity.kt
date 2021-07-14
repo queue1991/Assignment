@@ -18,7 +18,8 @@ class MainActivity : BaseKotlinActivity<ActivityMainBinding, HomeViewModel>() {
     }
 
     override fun initDataBinding() {
-
+        this.viewDataBinding.viewModel = viewModel
+        this.viewDataBinding.activity = this
     }
 
     override fun initAfterBinding() {

@@ -19,8 +19,12 @@ class HomeFragment : BaseKotlinFragment<FragmentHomeBinding, HomeViewModel>() {
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager: ViewPager
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        this.viewDataBinding.viewModel = viewModel
+        this.viewDataBinding.fragment = this
 
         tabLayout = tablayout_home
         viewPager = viewpager_home

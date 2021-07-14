@@ -37,9 +37,32 @@ class GoodsListFragment : BaseKotlinFragment<FragmentGoodsListBinding, HomeViewM
     private var adapter: FirestoreRecyclerAdapter<Pork, GoodsViewHolder>? = null
     private lateinit var recyclerView: RecyclerView
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        this.viewDataBinding.viewModel = viewModel
+        this.viewDataBinding.fragment = this
+
+        setGoodsList()
+    }
+
+    private open class GoodsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        fun setGoodsInfo(goodsName : String?, type : String?, price : String?){
+            val tv_name : TextView =itemView.findViewById(R.id.tv_name)
+            tv_name.setText(goodsName)
+
+            val tv_type : TextView =itemView.findViewById(R.id.tv_type)
+            tv_type.setText(type)
+
+            val tv_price : TextView =itemView.findViewById(R.id.tv_price)
+            tv_price.setText(price)
+        }
+
+    }
+
+    private fun setGoodsList(){
         recyclerView = recyclerview
         recyclerView.layoutManager =
             LinearLayoutManager(activity)
@@ -62,14 +85,11 @@ class GoodsListFragment : BaseKotlinFragment<FragmentGoodsListBinding, HomeViewM
             override fun onBindViewHolder(holder: GoodsViewHolder, p1: Int, pork: Pork) {
                 holder.setGoodsInfo(pork.name,pork.type,pork.price)
                 holder.itemView.setOnClickListener {
-                    Log.d("setOnClickListener","onBindViewHolder :: " + snapshots.getSnapshot(p1).id)
-
                     val intent = Intent(activity, GoodDetailActivity::class.java)
                     intent.putExtra(INTENT_KEY_DOCUMENT_FROM_HOME_TO_DETAIL_ACTIVITY,snapshots.getSnapshot(p1).id)
                     intent.putExtra(INTENT_KEY_GOODNAME_FROM_HOME_TO_DETAIL_ACTIVITY,pork.name.toString())
                     intent.putExtra(INTENT_KEY_GOODPRICE_FROM_HOME_TO_DETAIL_ACTIVITY,pork.price.toString())
                     intent.putExtra(INTENT_KEY_GOODTYPE_FROM_HOME_TO_DETAIL_ACTIVITY,pork.type.toString())
-
 
                     startActivity(intent)
                 }
@@ -78,21 +98,6 @@ class GoodsListFragment : BaseKotlinFragment<FragmentGoodsListBinding, HomeViewM
         }
 
         recyclerView.adapter = adapter
-    }
-
-    private open class GoodsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        fun setGoodsInfo(goodsName : String?, type : String?, price : String?){
-            val tv_name : TextView =itemView.findViewById(R.id.tv_name)
-            tv_name.setText(goodsName)
-
-            val tv_type : TextView =itemView.findViewById(R.id.tv_type)
-            tv_type.setText(type)
-
-            val tv_price : TextView =itemView.findViewById(R.id.tv_price)
-            tv_price.setText(price)
-        }
-
     }
 
     override fun onStart() {
