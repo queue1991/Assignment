@@ -26,13 +26,7 @@ class GoodDetailFragment : BaseKotlinFragment<FragmentGoodDetailBinding, DetailV
         this.viewDataBinding.viewModel = viewModel
         this.viewDataBinding.fragment = this
 
-        setGoodInfo()
     }
 
-    private fun setGoodInfo(){
-        tv_name.text = viewModel.goodName.value.toString()
-        tv_price.text = viewModel.goodPrice.value.toString()
-        tv_type.text = viewModel.goodType.value.toString()
-    }
 
 }

@@ -6,7 +6,9 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.hsj.assignment.fragment.home.GoodsListFragment
 import com.hsj.assignment.fragment.home.IntroFragment
 
-
+/**
+ * HomeFragment 에서 TabLayout / Viewpager 처리 Adapter
+ */
 open class HomePagerAdapter(fm: FragmentManager?) : FragmentStatePagerAdapter(fm!!) {
     var fragments: MutableList<Fragment> = ArrayList()
     override fun getItem(i: Int): Fragment {

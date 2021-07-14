@@ -24,6 +24,9 @@ class IntroFragment : BaseKotlinFragment<FragmentIntroBinding, HomeViewModel>() 
         this.viewDataBinding.viewModel = viewModel
         this.viewDataBinding.fragment = this
 
+        /**
+         * Firestore에서 앱소개 data 호출 및 UI 적용 (Databinding)
+         */
         viewModel.getIntroData()
     }
 

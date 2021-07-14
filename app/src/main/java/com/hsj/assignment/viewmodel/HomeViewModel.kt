@@ -13,7 +13,9 @@ class HomeViewModel(private val homeRepository : HomeRepository) : BaseKotlinVie
 
     private lateinit var docRef : DocumentReference
 
-
+    /**
+     * Firestore에서 앱소개 data 호출 및 UI 적용 (Databinding)
+     */
     fun getIntroData(){
         docRef = FirebaseFirestore.getInstance().collection(CommonFireStorePath.COLLECTION_INTRO).document("app1")
         docRef.addSnapshotListener { value, error ->

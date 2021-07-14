@@ -21,22 +21,22 @@ class DetailViewModel(private val detailRepository : DetailRepository) : BaseKot
     val goodType: LiveData<String> get() = _goodType
 
     /**
-     * Toolbar 상품이름 Setting
+     * 상품정보 저장
      */
     fun setDocument(documentPath : String){
-        _document.value = documentPath
+        _document.postValue(documentPath)
     }
 
     fun setGoodName(goodName : String){
-        _goodName.value = goodName
+        _goodName.postValue(goodName)
     }
 
     fun setGoodPrice(goodPrice : String){
-        _goodPrice.value = goodPrice
+        _goodPrice.postValue(goodPrice)
     }
 
     fun setGoodType(goodType : String){
-        _goodType.value = goodType
+        _goodType.postValue(goodType)
     }
 
 

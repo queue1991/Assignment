@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="intro"
+            android:text="@{viewModel.goodName}"
             android:textSize="20dp"
             android:textColor="#000000"
             android:textStyle="bold"
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="intro"
+            android:text="@{viewModel.goodType}"
             android:textColor="#000000"
             android:padding="24dp" />
 
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="intro"
+            android:text="@{viewModel.goodPrice}"
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="#000000"

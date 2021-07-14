@@ -1,5 +1,8 @@
 package com.hsj.assignment.common
 
+/**
+ * Intent Key 값
+ */
 object CommonIntentKey {
     const val INTENT_KEY_DOCUMENT_FROM_HOME_TO_DETAIL_ACTIVITY = "document"
     const val INTENT_KEY_GOODNAME_FROM_HOME_TO_DETAIL_ACTIVITY = "goodname"

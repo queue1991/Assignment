@@ -64,6 +64,10 @@ class GoodReviewFragment : BaseKotlinFragment<FragmentGoodReviewBinding, DetailV
 
     }
 
+    /**
+     * 사용자가 클릭한 상품의 Review List를 Setting
+     * 5개를 가져온 후, 스크롤이 마지막에 다다를때 3개 더 로드
+     */
     private fun setReviewList(){
         recyclerView = recyclerview_review
         recyclerView.layoutManager = LinearLayoutManager(activity)

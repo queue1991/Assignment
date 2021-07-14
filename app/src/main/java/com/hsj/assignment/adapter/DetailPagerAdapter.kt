@@ -6,7 +6,9 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.hsj.assignment.fragment.detail.GoodDetailFragment
 import com.hsj.assignment.fragment.detail.GoodReviewFragment
 
-
+/**
+ * DetailFragment 에서 TabLayout / Viewpager 처리 Adapter
+ */
 open class DetailPagerAdapter(fm: FragmentManager?) : FragmentStatePagerAdapter(fm!!) {
     var fragments: MutableList<Fragment> = ArrayList()
     override fun getItem(i: Int): Fragment {

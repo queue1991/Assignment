@@ -62,6 +62,10 @@ class GoodsListFragment : BaseKotlinFragment<FragmentGoodsListBinding, HomeViewM
 
     }
 
+    /**
+     * Firestore에서 실시간으로 상품 리스트를 호출하여 List에 Setting
+     * 사용자가 상품을 클릭 시 GoodDetailActivity 시작
+     */
     private fun setGoodsList(){
         recyclerView = recyclerview
         recyclerView.layoutManager =
