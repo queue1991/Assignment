@@ -24,7 +24,7 @@ class DetailViewModel(private val detailRepository : DetailRepository) : BaseKot
      * 상품정보 저장
      */
     fun setDocument(documentPath : String){
-        _document.postValue(documentPath)
+        _document.value = documentPath
     }
 
     fun setGoodName(goodName : String){
